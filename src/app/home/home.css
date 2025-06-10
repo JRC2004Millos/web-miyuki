@@ -1,0 +1,41 @@
+.home {
+  height: 100vh;
+  background: linear-gradient(to bottom, var(--color1), var(--color3));
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.logo-container img {
+  max-width: 200px;
+  margin-bottom: 1rem;
+}
+
+.logo-container h1 {
+  font-size: 2.5rem;
+  color: var(--color6);
+  margin: 0.5rem 0;
+}
+
+.logo-container p {
+  color: var(--color4);
+  margin-bottom: 2rem;
+}
+
+.btn-ver-catalogo {
+  background-color: var(--color5);
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-ver-catalogo:hover {
+  background-color: var(--color6);
+}
+
+img{
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
