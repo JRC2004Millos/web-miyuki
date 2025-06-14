@@ -57,12 +57,12 @@
 
 .nav-links li a {
   text-decoration: none;
-  color: #374151;
+  color: black;
   transition: color 0.3s;
 }
 
 .nav-links li a:hover {
-  color: #7c3aed;
+  color: var(--color6);
 }
 
 /* Hamburguesa */
@@ -83,7 +83,7 @@
   display: block;
   height: 4px;
   width: 100%;
-  background: var(--color6, #7d6a97);
+  background: black;
   border-radius: 2px;
   transition: all 0.3s;
 }
@@ -102,7 +102,7 @@
 .event-wrapper {
   font-weight: 500;
   color: white;
-  background-color: darkviolet;
+  background-color: black;
   padding: 3px 15px;
   border-radius: 10px;
   display: none;
@@ -195,7 +195,7 @@
 }
 
 .menu-list a {
-  color: darkviolet;
+  color: black;
   text-decoration: none;
   display: block;
 }
@@ -224,7 +224,7 @@
   width: 100%;
   height: 3px;
   border-radius: 50px;
-  background-color: var(--color6);
+  background-color: black;
   transition: all 0.4s;
   position: relative;
 }

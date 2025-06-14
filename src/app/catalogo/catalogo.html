@@ -1,6 +1,10 @@
 <section class="catalogo">
   <div class="grid-productos">
-    <div class="card" *ngFor="let item of productos">
+    <div
+      class="card"
+      [routerLink]="['/producto', i]"
+      *ngFor="let item of productos; let i = index"
+    >
       <div class="card__shine"></div>
       <div class="card__glow"></div>
       <div class="card__content">
