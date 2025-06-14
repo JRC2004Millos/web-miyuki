@@ -5,8 +5,18 @@
   padding: 4rem 2rem;
 }
 
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente si das altura */
+  margin-bottom: 2rem;
+}
+
 .logo-container img {
   max-width: 200px;
+  height: 200px;
+  object-fit: contain;
   margin-bottom: 1rem;
 }
 
@@ -35,7 +45,7 @@
   background-color: var(--color6);
 }
 
-img{
+img {
   border-radius: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

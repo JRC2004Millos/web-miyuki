@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --color1: #f1e3e3;
   --color2: #d0a9be;
@@ -7,10 +11,18 @@
   --color6: #7d6a97;
 }
 
+html,
 body {
-  font-family: "Arial", sans-serif;
+  height: 100%;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
   background-color: var(--color1);
-  overflow-x: hidden;
+}
+
+app-root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
