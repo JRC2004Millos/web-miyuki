@@ -5,10 +5,27 @@
       alt="MagdaLiz Accesorios"
       class="logo-img"
     />
-    <button class="hamburger" (click)="toggleMenu()" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" [class.open]="menuOpen">
+
+    <!-- Menú hamburguesa solo visible en móviles -->
+    <label class="event-wrapper mobile-only">
+      <input type="checkbox" checked class="event-wrapper-inp" />
+      <div class="bar">
+        <span class="top bar-list"></span>
+        <span class="middle bar-list"></span>
+        <span class="bottom bar-list"></span>
+      </div>
+      <section class="menu-container">
+        <div class="menu-list"><a href="#">INICIO</a></div>
+        <div class="menu-list"><a href="catalogo">CATÁLOGO</a></div>
+        <div class="menu-list"><a href="colecciones">COLECCIONES</a></div>
+        <div class="menu-list"><a href="nuevo">NUEVOS</a></div>
+        <div class="menu-list"><a href="nosotros">SOBRE NOSOTROS</a></div>
+        <div class="menu-list"><a href="contacto">CONTACTO</a></div>
+      </section>
+    </label>
+
+    <!-- Menú normal para pantallas grandes -->
+    <ul class="nav-links desktop-only">
       <li><a href="#">INICIO</a></li>
       <li><a href="catalogo">CATÁLOGO</a></li>
       <li><a href="colecciones">COLECCIONES</a></li>
