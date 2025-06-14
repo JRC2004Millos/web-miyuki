@@ -1,0 +1,120 @@
+.colecciones {
+  padding: 3rem;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, var(--color1), var(--color3));
+}
+
+.grid-colecciones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.coleccion-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.coleccion-card:hover {
+  transform: scale(1.02);
+}
+
+.coleccion-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.ver-btn {
+  background-color: white;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  width: fit-content;
+  transition: background-color 0.3s ease;
+  border: 2px solid #ccc;
+}
+
+.ver-btn:hover {
+  background-color: #ddd;
+}
+
+.imagen-coleccion {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+.contenido-coleccion {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: white;
+}
+
+.contenido-coleccion h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .colecciones {
+    padding: 1.5rem;
+  }
+
+  .grid-colecciones {
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .coleccion-card {
+    height: 300px;
+    padding: 0.75rem;
+  }
+
+  .coleccion-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .ver-btn {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .coleccion-card {
+    height: 250px;
+    padding: 0.6rem;
+  }
+
+  .coleccion-card h3 {
+    font-size: 1rem;
+  }
+
+  .ver-btn {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.7rem;
+  }
+}
+
+:host {
+  display: block;
+  height: 100%;
+}

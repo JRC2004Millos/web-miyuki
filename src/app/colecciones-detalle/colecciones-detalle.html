@@ -1,0 +1,71 @@
+<!-- coleccion-detalle.component.html -->
+<section class="catalogo">
+  <div class="section-header">
+    <h1>Colección: {{ nombreColeccion }}</h1>
+  </div>
+
+  <div class="grid-productos">
+    <div *ngFor="let producto of productosFiltrados" class="producto-card">
+      <div class="card">
+        <div class="card__glow"></div>
+        <div class="card__shine"></div>
+
+        <div class="card__image">
+          <img
+            [src]="producto.imagen"
+            alt="{{ producto.nombre }}"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
+        </div>
+
+        <div class="card__content">
+          <div class="card__text">
+            <h3 class="card__title">{{ producto.nombre }}</h3>
+          </div>
+          <div class="card__footer">
+            <div class="card__price">COP {{ producto.precio | number }}</div>
+            <a
+              class="card__button"
+              [routerLink]="['/producto', producto.index]"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path
+                  fill="currentColor"
+                  d="M12 4L10.59 5.41 16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="volver-wrapper">
+    <button
+      class="bg-white text-center w-48 rounded-2xl h-14 relative text-black text-xl font-semibold group"
+      type="button"
+      (click)="volver()"
+    >
+      <div
+        class="bg-[#CBA3BE] rounded-xl h-12 w-1/4 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[184px] z-10 duration-500"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1024 1024"
+          height="25px"
+          width="25px"
+        >
+          <path
+            d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
+            fill="#000000"
+          ></path>
+          <path
+            d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
+            fill="#000000"
+          ></path>
+        </svg>
+      </div>
+      <p class="translate-x-2">VOLVER</p>
+    </button>
+  </div>
+</section>

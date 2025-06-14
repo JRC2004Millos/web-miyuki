@@ -15,13 +15,20 @@
   display: flex;
   flex-direction: row;
   gap: 2rem;
-  align-items: center;
+  align-items: stretch;
   flex-wrap: wrap;
 }
 
+.detalle-imagen {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .detalle-imagen img {
-  max-width: 100%;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   border-radius: 1rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
@@ -29,11 +36,24 @@
 .detalle-info {
   flex: 1;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  height: 100%;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1.5rem;
 }
 
-.detalle-info h2 {
+.info-card h2 {
   font-size: 2rem;
   color: var(--color6);
 }
@@ -53,10 +73,18 @@
   text-decoration: none;
   display: inline-block;
   transition: background-color 0.3s;
+  width: fit-content;
 }
 
 .whatsapp-btn:hover {
   background-color: #1ebe5d;
+}
+
+.volver-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0 0 0;
 }
 
 :host {

@@ -1,0 +1,16 @@
+<section class="colecciones">
+  <div class="grid-colecciones">
+    <div class="coleccion-card" *ngFor="let coleccion of colecciones">
+      <div
+        class="imagen-coleccion"
+        [ngStyle]="{ 'background-image': 'url(' + coleccion.imagen + ')' }"
+      ></div>
+      <div class="contenido-coleccion">
+        <h3>{{ coleccion.nombre }}</h3>
+        <a class="ver-btn" [routerLink]="['/colecciones', coleccion.nombre]">
+          VER PRODUCTOS
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

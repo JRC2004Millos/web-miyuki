@@ -206,6 +206,7 @@
 
 .bar-event-wrapper-inp {
   -webkit-appearance: none;
+  appearance: none;
   display: none;
   visibility: hidden;
 }

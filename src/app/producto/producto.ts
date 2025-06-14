@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { productos } from '../catalogo/catalogo';
 import { CommonModule } from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-producto',
@@ -11,8 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class Producto {
   producto: any;
-
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private location: Location) {}
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -26,5 +26,9 @@ export class Producto {
       this.producto.coleccion ?? 'general'
     }`;
     return `https://wa.me/573185289607?text=${encodeURIComponent(mensaje)}`;
+  }
+
+  volver() {
+    this.location.back();
   }
 }

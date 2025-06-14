@@ -1,0 +1,18 @@
+/* Ejemplo de importación de estilos desde catalogo.css */
+@import "../catalogo/catalogo.css";
+
+/* Si necesitas sobreescribir o agregar estilos específicos para colecciones-detalle, agrégalos aquí */
+
+h1 {
+  font-size: 2rem;
+  color: var(--color6);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.volver-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0 0 0;
+}

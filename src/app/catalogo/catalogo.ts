@@ -58,7 +58,7 @@ export const productos = [
     tipo: 'aretes',
     imagen: 'assets/images/aretes/frida.jpg',
     imagenAlt: 'assets/images/aretes/frida.jpg',
-    coleccion: 'Flores',
+    coleccion: '',
     precio: 17000,
   },
   {
@@ -170,7 +170,7 @@ export const productos = [
     tipo: 'dije',
     imagen: 'assets/images/dijes/gargantillanombre.jpg',
     imagenAlt: 'assets/images/dijes/gargantillanombre.jpg',
-    coleccion: 'Colombia',
+    coleccion: '',
     precio: 25000,
   },
   {
@@ -178,7 +178,7 @@ export const productos = [
     tipo: 'dije',
     imagen: 'assets/images/dijes/ojoturco.jpg',
     imagenAlt: 'assets/images/dijes/ojoturco.jpg',
-    coleccion: 'Colombia',
+    coleccion: '',
     precio: 25000,
   },
   {
@@ -234,7 +234,7 @@ export const productos = [
     tipo: 'prendedor',
     imagen: 'assets/images/Prendedores/calabazapequeña.jpg',
     imagenAlt: 'assets/images/Prendedores/calabazapequeña.jpg',
-    coleccion: '',
+    coleccion: 'Halloween',
     precio: 25000,
   },
   {
