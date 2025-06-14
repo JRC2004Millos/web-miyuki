@@ -1,0 +1,20 @@
+<header class="site-header">
+  <div class="container">
+    <img
+      src="assets/images/MiyukiTexto.png"
+      alt="MagdaLiz Accesorios"
+      class="logo-img"
+    />
+    <button class="hamburger" (click)="toggleMenu()" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" [class.open]="menuOpen">
+      <li><a href="#">INICIO</a></li>
+      <li><a href="catalogo">CATÁLOGO</a></li>
+      <li><a href="colecciones">COLECCIONES</a></li>
+      <li><a href="nuevo">NUEVOS</a></li>
+      <li><a href="nosotros">SOBRE NOSOTROS</a></li>
+      <li><a href="contacto">CONTACTO</a></li>
+    </ul>
+  </div>
+</header>

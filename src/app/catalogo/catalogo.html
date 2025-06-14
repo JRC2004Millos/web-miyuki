@@ -1,50 +1,40 @@
-<section class="bg-pink-50 py-10 px-4">
-  <div
-    class="grid place-items-center gap-6"
-    style="
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      justify-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-    "
-  >
-    <div class="grid-productos">
-      <div class="card" *ngFor="let item of productos">
-        <div class="card__shine"></div>
-        <div class="card__glow"></div>
-        <div class="card__content">
-          <div class="card__badge">NUEVO</div>
-          <div class="card__image">
-            <img
-              [src]="item.imagen"
-              [alt]="item.nombre"
-              style="
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 12px;
-              "
-            />
+<section class="catalogo">
+  <div class="grid-productos">
+    <div class="card" *ngFor="let item of productos">
+      <div class="card__shine"></div>
+      <div class="card__glow"></div>
+      <div class="card__content">
+        <div class="card__badge">NUEVO</div>
+        <div class="card__image imagen-container">
+          <img
+            [src]="item.imagen"
+            [alt]="item.nombre"
+            class="imagen-principal"
+          />
+          <img
+            [src]="item.imagenAlt"
+            [alt]="item.nombre + ' alternativo'"
+            class="imagen-hover"
+          />
+        </div>
+
+        <div class="card__text">
+          <p class="card__title">{{ item.nombre }}</p>
+          <p class="card__description">Diseño hecho a mano</p>
+        </div>
+        <div class="card__footer">
+          <div class="card__price">
+            {{ item.precio | currency: 'COP ':'symbol':'1.0-0' }}
           </div>
-          <div class="card__text">
-            <p class="card__title">{{ item.nombre }}</p>
-            <p class="card__description">Diseño hecho a mano</p>
-          </div>
-          <div class="card__footer">
-            <div class="card__price">
-              {{ item.precio | currency: 'COP ':'symbol':'1.0-0' }}
-            </div>
-            <div class="card__button">
-              <svg height="16" width="16" viewBox="0 0 24 24">
-                <path
-                  stroke-width="2"
-                  stroke="currentColor"
-                  d="M4 12H20M12 4V20"
-                  fill="currentColor"
-                ></path>
-              </svg>
-            </div>
+          <div class="card__button">
+            <svg height="16" width="16" viewBox="0 0 24 24">
+              <path
+                stroke-width="2"
+                stroke="currentColor"
+                d="M4 12H20M12 4V20"
+                fill="currentColor"
+              ></path>
+            </svg>
           </div>
         </div>
       </div>

@@ -1,0 +1,157 @@
+/* Header */
+.site-header {
+  background-color: var(--color1, #fbeff1);
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color6, #4b0082);
+  margin: 0;
+}
+
+.nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: var(--color6, #4b0082);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: var(--card-accent, #7c3aed);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-weight: 500;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #374151;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #7c3aed;
+}
+
+/* Hamburguesa */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 5px;
+  margin-left: auto;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: var(--color6, #7d6a97);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.logo-img {
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+}
+
+/* Responsive nav */
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .site-header {
+    position: static;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--color1, #f1e3e3);
+    position: absolute;
+    top: 70px;
+    left: 0;
+    z-index: 1001;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .site-header .container {
+    position: relative;
+  }
+
+  .site-header .container {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links li a {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-img {
+    max-width: 120px;
+    height: auto;
+  }
+
+  .site-header .container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .nav {
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+}
