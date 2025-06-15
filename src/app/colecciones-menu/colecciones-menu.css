@@ -84,11 +84,19 @@
   }
 
   .coleccion-card {
-    height: 300px;
-    padding: 0.75rem;
+    padding: 0;
   }
 
-  .coleccion-card h3 {
+  .imagen-coleccion {
+    aspect-ratio: 1 / 1;
+    background-size: cover; /* cambió aquí */
+  }
+
+  .contenido-coleccion {
+    padding: 1rem;
+  }
+
+  .contenido-coleccion h3 {
     font-size: 1.1rem;
   }
 
@@ -99,12 +107,7 @@
 }
 
 @media (max-width: 480px) {
-  .coleccion-card {
-    height: 250px;
-    padding: 0.6rem;
-  }
-
-  .coleccion-card h3 {
+  .contenido-coleccion h3 {
     font-size: 1rem;
   }
 
