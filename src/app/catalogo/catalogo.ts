@@ -19,7 +19,7 @@ export const productos = [
     imagen: 'assets/images/aretes/acorazon.jpg',
     imagenAlt: 'assets/images/aretes/acorazon.jpg',
     coleccion: 'Colombia',
-    precio: 18000,
+    precio: 40000,
   },
   {
     nombre: 'Aretes Cascada',
@@ -27,7 +27,7 @@ export const productos = [
     imagen: 'assets/images/aretes/cascada.jpg',
     imagenAlt: 'assets/images/aretes/cascada.jpg',
     coleccion: '',
-    precio: 18000,
+    precio: 60000,
   },
   {
     nombre: 'Aretes Flor Blanca y Negra',
@@ -35,7 +35,7 @@ export const productos = [
     imagen: 'assets/images/aretes/florblancanegra.jpg',
     imagenAlt: 'assets/images/aretes/florblancanegra.jpg',
     coleccion: 'Flores',
-    precio: 19000,
+    precio: 55000,
   },
   {
     nombre: 'Aretes Flor Roja',
@@ -43,7 +43,7 @@ export const productos = [
     imagen: 'assets/images/aretes/floroja.jpg',
     imagenAlt: 'assets/images/aretes/floroja.jpg',
     coleccion: 'Flores',
-    precio: 17000,
+    precio: 50000,
   },
   {
     nombre: 'Aretes Flor Pastel',
@@ -51,7 +51,7 @@ export const productos = [
     imagen: 'assets/images/aretes/florpastel.jpg',
     imagenAlt: 'assets/images/aretes/florpastel.jpg',
     coleccion: 'Flores',
-    precio: 17000,
+    precio: 50000,
   },
   {
     nombre: 'Aretes Frida',
@@ -59,7 +59,7 @@ export const productos = [
     imagen: 'assets/images/aretes/frida.jpg',
     imagenAlt: 'assets/images/aretes/frida.jpg',
     coleccion: '',
-    precio: 17000,
+    precio: 45000,
   },
   {
     nombre: 'Aretes Hoja',
@@ -67,7 +67,7 @@ export const productos = [
     imagen: 'assets/images/aretes/hoja.jpg',
     imagenAlt: 'assets/images/aretes/hoja.jpg',
     coleccion: 'Flores',
-    precio: 17000,
+    precio: 50000,
   },
   {
     nombre: 'Aretes Triangulares de Flores',
@@ -75,7 +75,7 @@ export const productos = [
     imagen: 'assets/images/aretes/triangularflores.jpg',
     imagenAlt: 'assets/images/aretes/triangularflores2.jpg',
     coleccion: 'Flores',
-    precio: 18000,
+    precio: 45000,
   },
   {
     nombre: 'Aretes Árbol Navideño',
@@ -83,7 +83,7 @@ export const productos = [
     imagen: 'assets/images/aretes/aarbol.jpg',
     imagenAlt: 'assets/images/aretes/aarbol2.jpg',
     coleccion: 'Navidad',
-    precio: 17000,
+    precio: 35000,
   },
   {
     nombre: 'Aretes Triangulares Navideños',
@@ -91,7 +91,7 @@ export const productos = [
     imagen: 'assets/images/aretes/atriangular.jpg',
     imagenAlt: 'assets/images/aretes/atriangular.jpg',
     coleccion: 'Navidad',
-    precio: 17000,
+    precio: 45000,
   },
   {
     nombre: 'Aretes Galleta Navideña',
@@ -99,7 +99,7 @@ export const productos = [
     imagen: 'assets/images/aretes/agalleta.jpg',
     imagenAlt: 'assets/images/aretes/agalleta.jpg',
     coleccion: 'Navidad',
-    precio: 17000,
+    precio: 30000,
   },
   {
     nombre: 'Pulsera Chakras',
@@ -107,7 +107,7 @@ export const productos = [
     imagen: 'assets/images/pulseras/chakras.jpg',
     imagenAlt: 'assets/images/pulseras/chakras.jpg',
     coleccion: '',
-    precio: 25000,
+    precio: 55000,
   },
   {
     nombre: 'Pulsera Corazón Doble',
@@ -115,7 +115,7 @@ export const productos = [
     imagen: 'assets/images/pulseras/corazondoble.jpg',
     imagenAlt: 'assets/images/pulseras/corazondoble.jpg',
     coleccion: '',
-    precio: 25000,
+    precio: 40000,
   },
   {
     nombre: 'Pulsera Hexagonal',
@@ -123,7 +123,7 @@ export const productos = [
     imagen: 'assets/images/pulseras/hexagonal.jpg',
     imagenAlt: 'assets/images/pulseras/hexagonal2.jpg',
     coleccion: '',
-    precio: 25000,
+    precio: 60000,
   },
   {
     nombre: 'Pulsera de Letra Inicial',
@@ -131,7 +131,7 @@ export const productos = [
     imagen: 'assets/images/pulseras/letrainicial.jpg',
     imagenAlt: 'assets/images/pulseras/letrainicial.jpg',
     coleccion: '',
-    precio: 25000,
+    precio: 30000,
   },
   {
     nombre: 'Pulsera Telar',
@@ -139,7 +139,7 @@ export const productos = [
     imagen: 'assets/images/pulseras/pulseratelar.jpg',
     imagenAlt: 'assets/images/pulseras/pulseratelar.jpg',
     coleccion: '',
-    precio: 25000,
+    precio: 30000,
   },
   {
     nombre: 'Pulsera Tubular Azul',
@@ -171,7 +171,7 @@ export const productos = [
     imagen: 'assets/images/dijes/gargantillanombre.jpg',
     imagenAlt: 'assets/images/dijes/gargantillanombre.jpg',
     coleccion: '',
-    precio: 25000,
+    precio: 60000,
   },
   {
     nombre: 'Dije de Ojo Turco',
@@ -179,7 +179,7 @@ export const productos = [
     imagen: 'assets/images/dijes/ojoturco.jpg',
     imagenAlt: 'assets/images/dijes/ojoturco.jpg',
     coleccion: '',
-    precio: 25000,
+    precio: 30000,
   },
   {
     nombre: 'Prendedor Unicornio Miyuki',
@@ -187,7 +187,7 @@ export const productos = [
     imagen: 'assets/images/Prendedores/unicorniomiyuki.jpg',
     imagenAlt: 'assets/images/Prendedores/unicorniomiyuki.jpg',
     coleccion: '',
-    precio: 25000,
+    precio: 40000,
   },
   {
     nombre: 'Prendedor Llama Miyuki',
@@ -195,7 +195,7 @@ export const productos = [
     imagen: 'assets/images/Prendedores/llamamiyuki.jpg',
     imagenAlt: 'assets/images/Prendedores/llamamiyuki.jpg',
     coleccion: '',
-    precio: 25000,
+    precio: 45000,
   },
   {
     nombre: 'Prendedor Mariposa Morada',
@@ -203,7 +203,7 @@ export const productos = [
     imagen: 'assets/images/Prendedores/mariposamorada1.jpg',
     imagenAlt: 'assets/images/Prendedores/mariposamorada2.jpg',
     coleccion: '',
-    precio: 25000,
+    precio: 80000,
   },
   {
     nombre: 'Prendedor Mariposa Naranja',
@@ -211,7 +211,7 @@ export const productos = [
     imagen: 'assets/images/Prendedores/mariposanaranja.jpg',
     imagenAlt: 'assets/images/Prendedores/mariposanaranja2.jpg',
     coleccion: '',
-    precio: 25000,
+    precio: 40000,
   },
   {
     nombre: 'Prendedor Colibri',
@@ -219,7 +219,7 @@ export const productos = [
     imagen: 'assets/images/Prendedores/colibri1.jpg',
     imagenAlt: 'assets/images/Prendedores/colibri2.jpg',
     coleccion: '',
-    precio: 25000,
+    precio: 75000,
   },
   {
     nombre: 'Prendedor Calabaza',
@@ -227,7 +227,7 @@ export const productos = [
     imagen: 'assets/images/Prendedores/calabaza.jpg',
     imagenAlt: 'assets/images/Prendedores/calabazagrande.jpg',
     coleccion: 'Halloween',
-    precio: 25000,
+    precio: 40000,
   },
   {
     nombre: 'Prendedor Calabaza Pequeña',
@@ -235,7 +235,7 @@ export const productos = [
     imagen: 'assets/images/Prendedores/calabazapequeña.jpg',
     imagenAlt: 'assets/images/Prendedores/calabazapequeña.jpg',
     coleccion: 'Halloween',
-    precio: 25000,
+    precio: 30000,
   },
   {
     nombre: 'Prendedor Corazón Jeans',
@@ -243,7 +243,7 @@ export const productos = [
     imagen: 'assets/images/Prendedores/corazonjeans.jpg',
     imagenAlt: 'assets/images/Prendedores/corazonjeans2.jpg',
     coleccion: '',
-    precio: 25000,
+    precio: 35000,
   },
   {
     nombre: 'Prendedor Corazón Azul',
@@ -251,7 +251,7 @@ export const productos = [
     imagen: 'assets/images/Prendedores/corazonazul.jpg',
     imagenAlt: 'assets/images/Prendedores/corazonazul.jpg',
     coleccion: '',
-    precio: 25000,
+    precio: 35000,
   },
   {
     nombre: 'Prendedor Corazón Morado',
@@ -259,6 +259,6 @@ export const productos = [
     imagen: 'assets/images/Prendedores/corazonmorado.jpg',
     imagenAlt: 'assets/images/Prendedores/corazonmorado.jpg',
     coleccion: '',
-    precio: 25000,
+    precio: 40000,
   },
 ];
