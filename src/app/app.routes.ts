@@ -6,6 +6,7 @@ import { Contacto } from './contacto/contacto';
 import { Error } from './error/error';
 import { ColeccionesMenu } from './colecciones-menu/colecciones-menu';
 import { ColeccionesDetalle } from './colecciones-detalle/colecciones-detalle';
+import { EnConstruccion } from './en-construccion/en-construccion';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -14,6 +15,7 @@ export const routes: Routes = [
   { path: 'contacto', component: Contacto },
   { path: 'colecciones', component: ColeccionesMenu },
   { path: 'colecciones/:nombre', component: ColeccionesDetalle },
+  { path: 'construccion', component: EnConstruccion },
   // Ruta de error
   { path: 'error', component: Error },
   // Ruta comodín para 404

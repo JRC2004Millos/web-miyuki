@@ -166,6 +166,22 @@ export const productos = [
     precio: 25000,
   },
   {
+    nombre: 'Pulsera con Nombre',
+    tipo: 'pulsera',
+    imagen: 'assets/images/pulseras/pulseranombre.jpg',
+    imagenAlt: 'assets/images/pulseras/pulseranombre.jpg',
+    coleccion: 'Personalizados',
+    precio: 25000,
+  },
+  {
+    nombre: 'Pulsera de Corazones',
+    tipo: 'pulsera',
+    imagen: 'assets/images/pulseras/pulseracorazones.jpg',
+    imagenAlt: 'assets/images/pulseras/pulseracorazones.jpg',
+    coleccion: 'Amor y Amistad',
+    precio: 25000,
+  },
+  {
     nombre: 'Dije con Nombre',
     tipo: 'dije',
     imagen: 'assets/images/dijes/gargantillanombre.jpg',

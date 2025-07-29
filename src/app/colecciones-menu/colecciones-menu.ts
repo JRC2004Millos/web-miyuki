@@ -27,5 +27,13 @@ export class ColeccionesMenu {
       nombre: 'Flores',
       imagen: 'assets/images/flores.png',
     },
+    {
+      nombre: 'Amor y Amistad',
+      imagen: 'assets/images/amoryamistad.png',
+    },
+    {
+      nombre: 'Personalizados',
+      imagen: 'assets/images/personalizados.png',
+    },
   ];
 }
