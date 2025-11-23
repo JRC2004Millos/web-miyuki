@@ -22,8 +22,8 @@ export class ColeccionesDetalle {
     this.route.params.subscribe((params) => {
       this.nombreColeccion = params['nombre'];
       this.productosFiltrados = productos
-        .map((p, index) => ({ ...p, index }))
-        .filter((p) => p.coleccion === this.nombreColeccion);
+        .map((p, index) => ({ ...p, index })) // añade el índice real
+        .filter((p) => p.coleccion === this.nombreColeccion); // filtra después
     });
   }
 

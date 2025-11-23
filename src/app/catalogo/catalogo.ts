@@ -186,7 +186,7 @@ export const productos = [
     tipo: 'dije',
     imagen: 'assets/images/dijes/gargantillanombre.jpg',
     imagenAlt: 'assets/images/dijes/gargantillanombre.jpg',
-    coleccion: '',
+    coleccion: 'Personalizados',
     precio: 60000,
   },
   {
@@ -196,6 +196,14 @@ export const productos = [
     imagenAlt: 'assets/images/dijes/ojoturco.jpg',
     coleccion: '',
     precio: 30000,
+  },
+  {
+    nombre: 'Pendón Papá Noel',
+    tipo: 'muñeco',
+    imagen: 'assets/images/navidad/papanoelpendon.jpg',
+    imagenAlt: 'assets/images/navidad/papanoelpendon.jpg',
+    coleccion: 'Navidad',
+    precio: 100000,
   },
   {
     nombre: 'Prendedor Unicornio Miyuki',
