@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { productos } from '../catalogo/catalogo';
+import { productos } from '../data/productos';
 import { CommonModule, Location } from '@angular/common';
 
 type ProductoConIndice = (typeof productos)[0] & { index: number };

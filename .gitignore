@@ -44,3 +44,6 @@ Thumbs.db
 # Documents
 
 DEPLOY.md
+
+# No subir la config real de Firebase
+src/app/firebase-config.ts

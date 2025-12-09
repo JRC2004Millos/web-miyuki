@@ -1,0 +1,129 @@
+/* CONTENEDOR GENERAL */
+.admin-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* TARJETAS (SECCIONES) */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* LISTA DE PRODUCTOS */
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  background: #fafafa;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.product-info strong {
+  display: block;
+}
+
+.price {
+  color: #444;
+  font-size: 0.9rem;
+}
+
+/* BOTONES */
+button {
+  cursor: pointer;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.btn-edit {
+  background: #4e8cff;
+  color: white;
+}
+
+.btn-delete {
+  background: #ff4e4e;
+  color: white;
+}
+
+.btn-save {
+  background: #28a745;
+  color: white;
+}
+
+.btn-cancel {
+  background: #999;
+  color: white;
+}
+
+.btn-create {
+  background: #8e44ad;
+  color: white;
+}
+
+/* FORMULARIOS */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0.8rem 1rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: 500;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+}
+
+/* MINIATURA */
+.thumb {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 1rem;
+  border: 1px solid #ddd;
+}
+
+/* Alinear imagen + info */
+.product-flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

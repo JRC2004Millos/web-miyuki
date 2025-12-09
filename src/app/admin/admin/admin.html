@@ -1,0 +1,91 @@
+<div class="admin-container">
+  <h2 class="title">Panel de Administración</h2>
+
+  <!-- LISTA DE PRODUCTOS -->
+  <div class="card">
+    <h3>Productos registrados</h3>
+
+    <div class="product-list">
+      <div class="product-item" *ngFor="let p of productos">
+        <div class="product-flex">
+          <!-- Miniatura -->
+          <img class="thumb" [src]="p.imagen" [alt]="p.nombre" />
+
+          <!-- Info -->
+          <div class="product-info">
+            <strong>{{ p.nombre }}</strong>
+            <span class="price">{{ p.precio | currency : 'COP' }}</span>
+          </div>
+        </div>
+
+        <div class="product-actions">
+          <button class="btn-edit" (click)="seleccionarEditar(p)">
+            Editar
+          </button>
+          <button class="btn-delete" (click)="eliminar(p)">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDITAR PRODUCTO -->
+  <div class="card" *ngIf="editando">
+    <h3>Editando producto: {{ editando.nombre }}</h3>
+
+    <div class="form-grid">
+      <label>Nombre</label>
+      <input [(ngModel)]="editando.nombre" />
+
+      <label>Tipo</label>
+      <input [(ngModel)]="editando.tipo" />
+
+      <label>Precio</label>
+      <input type="number" [(ngModel)]="editando.precio" />
+
+      <label>Imagen</label>
+      <input [(ngModel)]="editando.imagen" />
+
+      <label>Imagen ALT</label>
+      <input [(ngModel)]="editando.imagenAlt" />
+
+      <label>Colección</label>
+      <input [(ngModel)]="editando.coleccion" />
+    </div>
+
+    <div class="actions">
+      <button class="btn-save" (click)="guardarEdicion()">
+        Guardar cambios
+      </button>
+      <button class="btn-cancel" (click)="cancelarEditar()">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- NUEVO PRODUCTO -->
+  <div class="card">
+    <h3>Agregar nuevo producto</h3>
+
+    <div class="form-grid">
+      <label>Nombre</label>
+      <input [(ngModel)]="nuevo.nombre" />
+
+      <label>Tipo</label>
+      <input [(ngModel)]="nuevo.tipo" />
+
+      <label>Precio</label>
+      <input type="number" [(ngModel)]="nuevo.precio" />
+
+      <label>Imagen</label>
+      <input [(ngModel)]="nuevo.imagen" />
+
+      <label>Imagen ALT</label>
+      <input [(ngModel)]="nuevo.imagenAlt" />
+
+      <label>Colección</label>
+      <input [(ngModel)]="nuevo.coleccion" />
+    </div>
+
+    <div class="actions">
+      <button class="btn-create" (click)="crear()">Crear producto</button>
+    </div>
+  </div>
+</div>

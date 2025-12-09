@@ -3,7 +3,7 @@
     <div
       class="card"
       [routerLink]="['/producto', i]"
-      *ngFor="let item of productos; let i = index"
+      *ngFor="let item of productos$ | async; let i = index"
     >
       <div class="card__shine"></div>
       <div class="card__glow"></div>
