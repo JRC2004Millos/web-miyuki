@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { productos } from '../data/productos';
 import { CommonModule, Location } from '@angular/common';
-
-type ProductoConIndice = (typeof productos)[0] & { index: number };
+import { ProductosService, Producto } from '../services/productos';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-colecciones-detalle',
@@ -13,18 +12,20 @@ type ProductoConIndice = (typeof productos)[0] & { index: number };
   styleUrl: './colecciones-detalle.css',
 })
 export class ColeccionesDetalle {
-  productosFiltrados: ProductoConIndice[] = [];
-  nombreColeccion = '';
+  nombreColeccion!: string;
+  productos$!: Observable<Producto[]>;
 
-  constructor(private route: ActivatedRoute, private location: Location) {}
+  constructor(
+    private route: ActivatedRoute,
+    private productosService: ProductosService,
+    private location: Location
+  ) {}
 
-  ngOnInit() {
-    this.route.params.subscribe((params) => {
-      this.nombreColeccion = params['nombre'];
-      this.productosFiltrados = productos
-        .map((p, index) => ({ ...p, index })) // añade el índice real
-        .filter((p) => p.coleccion === this.nombreColeccion); // filtra después
-    });
+  ngOnInit(): void {
+    this.nombreColeccion = this.route.snapshot.paramMap.get('nombre') ?? '';
+    this.productos$ = this.productosService.getProductosPorColeccion(
+      this.nombreColeccion
+    );
   }
 
   volver() {

@@ -9,6 +9,8 @@ import {
   docData,
   updateDoc,
   deleteDoc,
+  query,
+  where,
 } from '@angular/fire/firestore';
 
 import { Observable } from 'rxjs';
@@ -44,6 +46,11 @@ export class ProductosService {
   getProducto(id: string): Observable<Producto | undefined> {
     const ref = doc(this.firestore, `productos/${id}`);
     return docData(ref, { idField: 'id' }) as Observable<Producto | undefined>;
+  }
+
+  getProductosPorColeccion(nombre: string): Observable<Producto[]> {
+    const q = query(this.colRef, where('coleccion', '==', nombre));
+    return collectionData(q, { idField: 'id' }) as Observable<Producto[]>;
   }
 
   // Crear un producto nuevo
