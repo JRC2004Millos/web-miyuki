@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import {
+  Storage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+} from '@angular/fire/storage';
 import { Producto, ProductosService } from '../../services/productos';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-admin',
@@ -11,8 +18,9 @@ import { Producto, ProductosService } from '../../services/productos';
   styleUrl: './admin.css',
 })
 export class Admin implements OnInit {
-  productos: Producto[] = [];
+  productos$!: Observable<Producto[]>;
   editando: Producto | null = null;
+  archivoNuevo: File | null = null;
   nuevo: Producto = {
     nombre: '',
     tipo: '',
@@ -22,12 +30,13 @@ export class Admin implements OnInit {
     coleccion: '',
   };
 
-  constructor(private productosService: ProductosService) {}
+  constructor(
+    private productosService: ProductosService,
+    private storage: Storage
+  ) {}
 
   ngOnInit() {
-    this.productosService.getProductos().subscribe((prods) => {
-      this.productos = prods;
-    });
+    this.productos$ = this.productosService.getProductos(); // 👈 sin subscribe
   }
 
   seleccionarEditar(p: Producto) {
@@ -51,14 +60,47 @@ export class Admin implements OnInit {
   }
 
   async crear() {
-    await this.productosService.addProducto(this.nuevo);
-    this.nuevo = {
-      nombre: '',
-      tipo: '',
-      precio: 0,
-      imagen: '',
-      imagenAlt: '',
-      coleccion: '',
-    };
+    try {
+      let imagenUrl = this.nuevo.imagen; // por si quieres seguir permitiendo pegar una URL manual
+
+      if (this.archivoNuevo) {
+        imagenUrl = await this.subirImagen(this.archivoNuevo);
+      }
+
+      await this.productosService.addProducto({
+        ...this.nuevo,
+        imagen: imagenUrl,
+      });
+
+      // reset
+      this.nuevo = {
+        nombre: '',
+        tipo: '',
+        precio: 0,
+        imagen: '',
+        imagenAlt: '',
+        coleccion: '',
+      };
+      this.archivoNuevo = null;
+    } catch (e) {
+      console.error('Error creando producto con imagen', e);
+    }
+  }
+
+  onArchivoNuevoChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.archivoNuevo = input.files[0];
+    } else {
+      this.archivoNuevo = null;
+    }
+  }
+
+  private async subirImagen(file: File): Promise<string> {
+    const filePath = `productos/${Date.now()}_${file.name}`;
+    const storageRef = ref(this.storage, filePath);
+    await uploadBytes(storageRef, file);
+    const url = await getDownloadURL(storageRef);
+    return url; // URL pública para usar en <img>
   }
 }

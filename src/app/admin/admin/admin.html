@@ -6,7 +6,7 @@
     <h3>Productos registrados</h3>
 
     <div class="product-list">
-      <div class="product-item" *ngFor="let p of productos">
+      <div class="product-item" *ngFor="let p of productos$ | async">
         <div class="product-flex">
           <!-- Miniatura -->
           <img class="thumb" [src]="p.imagen" [alt]="p.nombre" />
@@ -74,7 +74,7 @@
       <label>Precio</label>
       <input type="number" [(ngModel)]="nuevo.precio" />
 
-      <label>Imagen</label>
+      <label>Imagen (URL opcional)</label>
       <input [(ngModel)]="nuevo.imagen" />
 
       <label>Imagen ALT</label>
@@ -82,6 +82,13 @@
 
       <label>Colección</label>
       <input [(ngModel)]="nuevo.coleccion" />
+
+      <label>Archivo de imagen</label>
+      <input
+        type="file"
+        (change)="onArchivoNuevoChange($event)"
+        accept="image/*"
+      />
     </div>
 
     <div class="actions">
