@@ -1,30 +1,37 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { productos } from '../data/productos';
 import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common';
+import { Observable } from 'rxjs';
+import { Producto, ProductosService } from '../services/productos';
 
 @Component({
   selector: 'app-producto',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './producto.html',
   styleUrl: './producto.css',
 })
-export class Producto {
-  producto: any;
-  constructor(private route: ActivatedRoute, private location: Location) {}
+export class ProductoComponent {
+  producto$!: Observable<Producto | undefined>;
+
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private productosService: ProductosService
+  ) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.producto = productos[id];
+    const id = this.route.snapshot.paramMap.get('id'); // <-- AHORA ES STRING FIRESTORE ID
+    if (id) {
+      this.producto$ = this.productosService.getProducto(id);
+    }
   }
 
-  obtenerLinkWhatsApp(): string {
+  obtenerLinkWhatsApp(producto: Producto): string {
     const mensaje = `Hola, estoy interesado en el producto: ${
-      this.producto.nombre
-    } (${this.producto.tipo}) de la colección ${
-      this.producto.coleccion ?? 'general'
-    }`;
+      producto.nombre
+    } (${producto.tipo}) de la colección ${producto.coleccion ?? 'general'}`;
     return `https://wa.me/573185289607?text=${encodeURIComponent(mensaje)}`;
   }
 
@@ -32,3 +39,4 @@ export class Producto {
     this.location.back();
   }
 }
+export type { Producto };

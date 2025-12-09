@@ -1,15 +1,22 @@
 <div class="producto-detalle">
   <div class="detalle-contenido">
     <div class="detalle-imagen">
-      <img [src]="producto.imagen" [alt]="producto.nombre" />
+      <img
+        [src]="(producto$ | async)?.imagen"
+        [alt]="(producto$ | async)?.nombre"
+      />
     </div>
     <div class="detalle-info">
       <div class="info-card">
-        <h2>{{ producto.nombre }}</h2>
+        <h2>{{ (producto$ | async)?.nombre }}</h2>
         <p class="precio">
-          {{ producto.precio | currency:'COP ':'symbol':'1.0-0' }}
+          {{ (producto$ | async)?.precio | currency:'COP ':'symbol':'1.0-0' }}
         </p>
-        <a [href]="obtenerLinkWhatsApp()" target="_blank" class="whatsapp-btn">
+        <a
+          [href]="obtenerLinkWhatsApp((producto$ | async)!)"
+          target="_blank"
+          class="whatsapp-btn"
+        >
           Consultar por WhatsApp
         </a>
       </div>

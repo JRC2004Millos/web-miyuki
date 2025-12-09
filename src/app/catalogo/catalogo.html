@@ -2,7 +2,7 @@
   <div class="grid-productos">
     <div
       class="card"
-      [routerLink]="['/producto', i]"
+      [routerLink]="['/producto', item.id]"
       *ngFor="let item of productos$ | async; let i = index"
     >
       <div class="card__shine"></div>

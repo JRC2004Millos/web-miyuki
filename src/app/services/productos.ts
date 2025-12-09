@@ -6,9 +6,11 @@ import {
   collectionData,
   addDoc,
   doc,
+  docData,
   updateDoc,
   deleteDoc,
 } from '@angular/fire/firestore';
+
 import { Observable } from 'rxjs';
 
 export interface Producto {
@@ -37,6 +39,11 @@ export class ProductosService {
     return collectionData(this.colRef, { idField: 'id' }) as Observable<
       Producto[]
     >;
+  }
+
+  getProducto(id: string): Observable<Producto | undefined> {
+    const ref = doc(this.firestore, `productos/${id}`);
+    return docData(ref, { idField: 'id' }) as Observable<Producto | undefined>;
   }
 
   // Crear un producto nuevo
