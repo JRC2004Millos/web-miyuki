@@ -1,6 +1,17 @@
 <div class="admin-container">
   <h2 class="title">Panel de Administración</h2>
 
+  <div class="card" style="margin-bottom: 2rem; border: 2px dashed #cba3be">
+    <h3>Migración de imágenes al Storage</h3>
+    <p>
+      Este proceso convierte todas las imágenes locales (assets/...) a imágenes
+      alojadas en Firebase Storage.
+    </p>
+    <button class="btn-edit" (click)="migrarImagenes()">
+      Migrar imágenes ahora
+    </button>
+  </div>
+
   <!-- LISTA DE PRODUCTOS -->
   <div class="card">
     <h3>Productos registrados</h3>

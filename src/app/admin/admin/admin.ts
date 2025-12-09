@@ -8,7 +8,7 @@ import {
   getDownloadURL,
 } from '@angular/fire/storage';
 import { Producto, ProductosService } from '../../services/productos';
-import { Observable } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-admin',
@@ -102,5 +102,51 @@ export class Admin implements OnInit {
     await uploadBytes(storageRef, file);
     const url = await getDownloadURL(storageRef);
     return url; // URL pública para usar en <img>
+  }
+
+  private async urlToFile(url: string, filename: string): Promise<File> {
+    const res = await fetch(url);
+    const blob = await res.blob();
+    return new File([blob], filename, { type: blob.type });
+  }
+
+  private async migrarImagen(url: string, nombre: string): Promise<string> {
+    const file = await this.urlToFile(url, nombre + '.jpg');
+    return await this.subirImagen(file);
+  }
+
+  async migrarImagenes() {
+    console.log('Iniciando migración de imágenes...');
+
+    const productos = await firstValueFrom(this.productos$);
+
+    for (const p of productos) {
+      try {
+        // Migrar imagen principal
+        if (p.imagen.startsWith('assets')) {
+          console.log('Migrando imagen:', p.nombre);
+          const nuevaImagen = await this.migrarImagen(p.imagen, p.nombre);
+          await this.productosService.updateProducto(p.id!, {
+            imagen: nuevaImagen,
+          });
+        }
+
+        // Migrar imagen alternativa
+        if (p.imagenAlt && p.imagenAlt.startsWith('assets')) {
+          console.log('Migrando imagen ALT:', p.nombre);
+          const nuevaAlt = await this.migrarImagen(
+            p.imagenAlt,
+            p.nombre + '-alt'
+          );
+          await this.productosService.updateProducto(p.id!, {
+            imagenAlt: nuevaAlt,
+          });
+        }
+      } catch (e) {
+        console.error('Error migrando el producto', p.nombre, e);
+      }
+    }
+
+    console.log('Migración completa ✔');
   }
 }
