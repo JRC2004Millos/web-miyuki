@@ -1,3 +1,11 @@
+.login {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, var(--color1), var(--color3));
+}
+
 .login-container {
   max-width: 350px;
   margin: 3rem auto;
