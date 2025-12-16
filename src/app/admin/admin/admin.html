@@ -10,7 +10,12 @@
         <div class="product-item" *ngFor="let p of productos$ | async">
           <div class="product-flex">
             <!-- Miniatura -->
-            <img class="thumb" [src]="p.imagen" [alt]="p.nombre" />
+            <img
+              class="thumb"
+              [src]="p.imagen"
+              [alt]="p.nombre"
+              loading="lazy"
+            />
 
             <!-- Info -->
             <div class="product-info">

@@ -18,11 +18,13 @@
             [src]="item.imagen"
             [alt]="item.nombre"
             class="imagen-principal"
+            loading="lazy"
           />
           <img
             [src]="item.imagenAlt"
             [alt]="item.nombre + ' alternativo'"
             class="imagen-hover"
+            loading="lazy"
           />
         </div>
 
