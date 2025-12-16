@@ -36,20 +36,54 @@
       <label>Nombre</label>
       <input [(ngModel)]="editando.nombre" />
 
-      <label>Tipo</label>
-      <input [(ngModel)]="editando.tipo" />
-
       <label>Precio</label>
       <input type="number" [(ngModel)]="editando.precio" />
 
-      <label>Imagen</label>
-      <input [(ngModel)]="editando.imagen" />
-
-      <label>Imagen ALT</label>
-      <input [(ngModel)]="editando.imagenAlt" />
+      <label>Tipo</label>
+      <input
+        [(ngModel)]="editando.tipo"
+        list="tiposExistentes"
+        placeholder="Escribe o selecciona un tipo"
+      />
 
       <label>Colección</label>
-      <input [(ngModel)]="editando.coleccion" />
+      <input
+        [(ngModel)]="editando.coleccion"
+        list="coleccionesExistentes"
+        placeholder="Escribe o selecciona una colección"
+      />
+
+      <label>Imagen principal</label>
+      <div>
+        <div class="preview-row">
+          <img class="thumb" [src]="editando.imagen" [alt]="editando.nombre" />
+          <input
+            type="file"
+            (change)="onArchivoEditarPrincipalChange($event)"
+            accept="image/*"
+          />
+        </div>
+        <small
+          >Si subes una nueva imagen principal y no subes alternativa, la
+          alternativa quedará igual.</small
+        >
+      </div>
+
+      <label>Imagen alternativa (opcional)</label>
+      <div>
+        <div class="preview-row">
+          <img
+            class="thumb"
+            [src]="editando.imagenAlt || editando.imagen"
+            [alt]="editando.nombre + ' alt'"
+          />
+          <input
+            type="file"
+            (change)="onArchivoEditarAltChange($event)"
+            accept="image/*"
+          />
+        </div>
+      </div>
     </div>
 
     <div class="actions">
@@ -68,27 +102,66 @@
       <label>Nombre</label>
       <input [(ngModel)]="nuevo.nombre" />
 
-      <label>Tipo</label>
-      <input [(ngModel)]="nuevo.tipo" />
-
       <label>Precio</label>
       <input type="number" [(ngModel)]="nuevo.precio" />
 
-      <label>Imagen (URL opcional)</label>
-      <input [(ngModel)]="nuevo.imagen" />
+      <label>Tipo</label>
+      <input
+        [(ngModel)]="nuevo.tipo"
+        list="tiposExistentes"
+        placeholder="Escribe o selecciona un tipo"
+      />
 
-      <label>Imagen ALT</label>
-      <input [(ngModel)]="nuevo.imagenAlt" />
+      <datalist id="tiposExistentes">
+        <option *ngFor="let t of tiposExistentes" [value]="t"></option>
+      </datalist>
 
       <label>Colección</label>
-      <input [(ngModel)]="nuevo.coleccion" />
-
-      <label>Archivo de imagen</label>
       <input
-        type="file"
-        (change)="onArchivoNuevoChange($event)"
-        accept="image/*"
+        [(ngModel)]="nuevo.coleccion"
+        list="coleccionesExistentes"
+        placeholder="Escribe o selecciona una colección"
       />
+
+      <datalist id="coleccionesExistentes">
+        <option *ngFor="let c of coleccionesExistentes" [value]="c"></option>
+      </datalist>
+
+      <label>Imagen principal</label>
+      <div class="preview-row">
+        <img
+          *ngIf="previewNuevoPrincipal"
+          class="thumb"
+          [src]="previewNuevoPrincipal"
+          alt="Preview principal"
+        />
+        <input
+          type="file"
+          (change)="onArchivoNuevoPrincipalChange($event)"
+          accept="image/*"
+        />
+      </div>
+
+      <label>Imagen alternativa (opcional)</label>
+      <div class="preview-row">
+        <img
+          *ngIf="previewNuevoAlt"
+          class="thumb"
+          [src]="previewNuevoAlt"
+          alt="Preview alternativa"
+        />
+        <input
+          type="file"
+          (change)="onArchivoNuevoAltChange($event)"
+          accept="image/*"
+        />
+      </div>
+
+      <div class="hint" style="grid-column: 1 / -1">
+        <small>
+          Si no subes imagen alternativa, se usará la misma imagen principal.
+        </small>
+      </div>
     </div>
 
     <div class="actions">

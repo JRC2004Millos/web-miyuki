@@ -112,6 +112,16 @@ input {
   gap: 0.8rem;
 }
 
+.preview-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.preview-row input[type="file"] {
+  flex: 1;
+}
+
 /* MINIATURA */
 .thumb {
   width: 55px;

@@ -21,6 +21,14 @@ export class Admin implements OnInit {
   productos$!: Observable<Producto[]>;
   editando: Producto | null = null;
   archivoNuevo: File | null = null;
+  archivoNuevoPrincipal: File | null = null;
+  archivoNuevoAlt: File | null = null;
+  archivoEditarPrincipal: File | null = null;
+  archivoEditarAlt: File | null = null;
+  previewNuevoPrincipal: string | null = null;
+  previewNuevoAlt: string | null = null;
+  tiposExistentes: string[] = [];
+  coleccionesExistentes: string[] = [];
   nuevo: Producto = {
     nombre: '',
     tipo: '',
@@ -36,11 +44,23 @@ export class Admin implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.productos$ = this.productosService.getProductos(); // 👈 sin subscribe
+    this.productos$ = this.productosService.getProductos();
+
+    this.productos$.subscribe((productos) => {
+      this.tiposExistentes = Array.from(
+        new Set(productos.map((p) => p.tipo).filter(Boolean))
+      );
+
+      this.coleccionesExistentes = Array.from(
+        new Set(productos.map((p) => p.coleccion).filter(Boolean))
+      );
+    });
   }
 
   seleccionarEditar(p: Producto) {
     this.editando = { ...p };
+    this.archivoEditarPrincipal = null;
+    this.archivoEditarAlt = null;
   }
 
   cancelarEditar() {
@@ -48,10 +68,42 @@ export class Admin implements OnInit {
   }
 
   async guardarEdicion() {
-    if (!this.editando || !this.editando.id) return;
-    const { id, ...data } = this.editando;
-    await this.productosService.updateProducto(id, data);
-    this.editando = null;
+    try {
+      if (!this.editando || !this.editando.id) return;
+
+      let imagenUrl = this.editando.imagen;
+      let imagenAltUrl = this.editando.imagenAlt;
+
+      // Si sube una nueva principal, se reemplaza
+      if (this.archivoEditarPrincipal) {
+        imagenUrl = await this.subirImagen(this.archivoEditarPrincipal);
+
+        // Si NO sube alt nueva, por defecto igualamos a principal
+        if (!this.archivoEditarAlt) {
+          imagenAltUrl = imagenUrl;
+        }
+      }
+
+      // Si sube una nueva alt, se reemplaza (independiente)
+      if (this.archivoEditarAlt) {
+        imagenAltUrl = await this.subirImagen(this.archivoEditarAlt);
+      }
+
+      await this.productosService.updateProducto(this.editando.id, {
+        nombre: this.editando.nombre,
+        tipo: this.editando.tipo,
+        precio: this.editando.precio,
+        coleccion: this.editando.coleccion,
+        imagen: imagenUrl,
+        imagenAlt: imagenAltUrl,
+      });
+
+      this.editando = null;
+      this.archivoEditarPrincipal = null;
+      this.archivoEditarAlt = null;
+    } catch (e) {
+      console.error('Error guardando edición', e);
+    }
   }
 
   async eliminar(p: Producto) {
@@ -61,15 +113,22 @@ export class Admin implements OnInit {
 
   async crear() {
     try {
-      let imagenUrl = this.nuevo.imagen; // por si quieres seguir permitiendo pegar una URL manual
-
-      if (this.archivoNuevo) {
-        imagenUrl = await this.subirImagen(this.archivoNuevo);
+      if (!this.archivoNuevoPrincipal) {
+        alert('Debes subir la imagen principal');
+        return;
       }
+
+      const imagenUrl = await this.subirImagen(this.archivoNuevoPrincipal);
+
+      // ALT opcional: si no hay, usar la principal
+      const imagenAltUrl = this.archivoNuevoAlt
+        ? await this.subirImagen(this.archivoNuevoAlt)
+        : imagenUrl;
 
       await this.productosService.addProducto({
         ...this.nuevo,
         imagen: imagenUrl,
+        imagenAlt: imagenAltUrl,
       });
 
       // reset
@@ -81,7 +140,10 @@ export class Admin implements OnInit {
         imagenAlt: '',
         coleccion: '',
       };
-      this.archivoNuevo = null;
+      this.archivoNuevoPrincipal = null;
+      this.archivoNuevoAlt = null;
+      this.previewNuevoPrincipal = null;
+      this.previewNuevoAlt = null;
     } catch (e) {
       console.error('Error creando producto con imagen', e);
     }
@@ -148,5 +210,41 @@ export class Admin implements OnInit {
     }
 
     console.log('Migración completa ✔');
+  }
+
+  onArchivoNuevoPrincipalChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0] ?? null;
+
+    this.archivoNuevoPrincipal = file;
+
+    if (file) {
+      this.previewNuevoPrincipal = URL.createObjectURL(file);
+
+      // Si aún no hay alt seleccionada, que la alt muestre la principal
+      if (!this.archivoNuevoAlt) {
+        this.previewNuevoAlt = this.previewNuevoPrincipal;
+      }
+    }
+  }
+
+  onArchivoNuevoAltChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0] ?? null;
+
+    this.archivoNuevoAlt = file;
+    this.previewNuevoAlt = file
+      ? URL.createObjectURL(file)
+      : this.previewNuevoPrincipal;
+  }
+
+  onArchivoEditarPrincipalChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.archivoEditarPrincipal = input.files?.[0] ?? null;
+  }
+
+  onArchivoEditarAltChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.archivoEditarAlt = input.files?.[0] ?? null;
   }
 }
